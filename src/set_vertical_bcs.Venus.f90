@@ -20,7 +20,6 @@ subroutine set_vertical_bcs(LogRho,LogNS,Vel_GD,Temp, LogINS, iVel, VertVel)
   use EUA_ModMsis90, ONLY: meter6
 
   implicit none
-
   real, intent(inout) :: &
        LogRho(-1:nAlts+2), &
        LogNS(-1:nAlts+2,nSpecies), &
@@ -44,7 +43,7 @@ subroutine set_vertical_bcs(LogRho,LogNS,Vel_GD,Temp, LogINS, iVel, VertVel)
 
   ! Zero winds at the boundary
   !write(*,*) "HorizontalVelocityBC", HorizontalVelocityBC
-  Vel_GD(-1:0,iEast_)  = HorizontalVelocityBC * cosd(lat)
+  Vel_GD(-1:0,iEast_)  = HorizontalVelocityBC * cos(lat * pi / 180.0)
   
   Vel_GD(-1:0,iNorth_) = 0.0
 
