@@ -44,7 +44,7 @@ subroutine set_vertical_bcs(LogRho,LogNS,Vel_GD,Temp, LogINS, iVel, VertVel)
 
   ! Zero winds at the boundary
   !write(*,*) "HorizontalVelocityBC", HorizontalVelocityBC
-  Vel_GD(-1:0,iEast_)  = HorizontalVelocityBC * cosd(lat)
+  Vel_GD(-1:0,iEast_)  = HorizontalVelocityBC * cos(lat*3.14/180)
   
   Vel_GD(-1:0,iNorth_) = 0.0
 
